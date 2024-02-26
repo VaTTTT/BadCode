@@ -9,7 +9,7 @@ public class BulletShooter : MonoBehaviour
     [SerializeField] private float _velocity;
     [SerializeField] private float _shootingDelay; 
 
-    void Start() 
+    private void Start() 
     {
         StartCoroutine(Shoot());
     }
