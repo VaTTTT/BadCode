@@ -20,11 +20,11 @@ public class WayPointsMover : MonoBehaviour
 
     private void Update()
     {
-        var _currentWayPoint = _wayPoints[_wayPointIndex];
+        var currentWayPoint = _wayPoints[_wayPointIndex];
         
-        transform.position = Vector3.MoveTowards(transform.position, _currentWayPoint.position, _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, currentWayPoint.position, _speed * Time.deltaTime);
 
-        if (transform.position == _currentWayPoint.position)
+        if (transform.position == currentWayPoint.position)
         {
             GetNextWayPoint();
         } 
