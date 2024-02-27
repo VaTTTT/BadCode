@@ -32,12 +32,7 @@ public class WayPointsMover : MonoBehaviour
     
     private void GetNextWayPoint()
     {
-        _wayPointIndex++;
-
-        if (_wayPointIndex == _wayPoints.Length)
-        {
-            _wayPointIndex = 0;
-        }
+        _wayPointIndex = ++_wayPointIndex % _wayPoints.Length;
        
         var targetPosition = _wayPoints[_wayPointIndex].transform.position;
         
