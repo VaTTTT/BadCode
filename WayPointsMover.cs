@@ -12,9 +12,9 @@ public class WayPointsMover : MonoBehaviour
     {
         _wayPoints = new Transform[_wayPoint.childCount];
 
-        for (int i = 0; i < _wayPoint.childCount; i++)
+        for (int i = 0; i < _wayPoint.Length; i++)
         {
-            _wayPoints[i] = _wayPoint.GetChild(i).GetComponent<Transform>();
+            _wayPoints[i] = _wayPoint.GetChild(i);
         }
     }
 
@@ -30,7 +30,7 @@ public class WayPointsMover : MonoBehaviour
         } 
     }
     
-    private Vector3 GetNextWayPoint()
+    private void GetNextWayPoint()
     {
         _wayPointIndex++;
 
@@ -38,11 +38,9 @@ public class WayPointsMover : MonoBehaviour
         {
             _wayPointIndex = 0;
         }
+       
+        var targetPosition = _wayPoints[_wayPointIndex].transform.position;
         
-        var movingDirection = _wayPoints[_wayPointIndex].transform.position;
-        
-        transform.forward = movingDirection - transform.position;
-        
-        return movingDirection;
+        transform.forward = targetPosition - transform.position;       
     }
 }
